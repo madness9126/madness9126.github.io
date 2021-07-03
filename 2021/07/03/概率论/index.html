@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        test_my_site｜undefined
+        大学课程概率论复习｜undefined
         
     </title>
 
-    <link rel="canonical" href="http://example.com/2021/07/02/test-my-site/">
+    <link rel="canonical" href="http://example.com/2021/07/03/概率论/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -143,12 +143,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>test_my_site</h1>
+                    <h1>大学课程概率论复习</h1>
                     
                     <span class="meta">
                          作者 John Doe
                         <span>
-                          日期 2021-07-02
+                          日期 2021-07-03
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -160,7 +160,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            test_my_site
+            大学课程概率论复习
         </span>
     </div>
 </header>
@@ -171,21 +171,42 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                
+                <p>xxxx</p>
+<h2 id="一、概率论的基本概念"><a href="#一、概率论的基本概念" class="headerlink" title="一、概率论的基本概念"></a>一、概率论的基本概念</h2><h3 id="样本空间、随机事件"><a href="#样本空间、随机事件" class="headerlink" title="样本空间、随机事件"></a>样本空间、随机事件</h3><p>一般事件运算：交换律、结合律、分配律、德摩根律</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A - B = AB<span class="string">&#x27; = A - AB </span></span><br></pre></td></tr></table></figure>
+
+<h3 id="概率、古典概型"><a href="#概率、古典概型" class="headerlink" title="概率、古典概型"></a>概率、古典概型</h3><p>1、频率<br>2、概率公理化定义<br>概率性质：<br>①P(B - A) = P(B) - p(AB)<br>②当A含于B，P(B - A) = P(B) - P(A) ; P(A) &lt;= P(B)<br>③对任意两个事件AB：P(A ∪ B) = P(A) + P(B) - P(AB)<br>3、古典概型：有限个样本点<br>4、几何概型：无数个样本点</p>
+<h3 id="条件概率、全概率公式"><a href="#条件概率、全概率公式" class="headerlink" title="条件概率、全概率公式"></a>条件概率、全概率公式</h3><p>1、条件概率<br>事件B已发生的条件下事件A发生的条件概率：p(A | B) = P(AB) / P(B)  ( P(B) &gt; 0 )</p>
+<p>性质：<br>①对于任一事件A，有P(A | B ) &gt;= 0<br>②P(Ω | B) = 1</p>
+<p>2、乘法定理<br>设P(A) &gt; 0，则有P(AB) = P(A)P(B | A)。易知，若P(B) &gt; 0 ，则有P(AB) = P(B)P(A | B).</p>
+<p>3、全概率公式和贝叶斯公式</p>
+<p>全概率公式：<br>设B为样本空间Ω中任一事件，A1、A2、A3、… 、An为Ω的一个划分，且P(Ai) &gt; 0 , i=1,2,3,…,n，则有P(B) = P(A1)P(B | A1) + P(A2)P(B | A2) + P(A3)P(B | A3) + … +P(An)P(B | An) = ∑P(Ai)P(B |  Ai)   (i从1到n)；</p>
+<p>贝叶斯公式：设B为样本空间Ω中一事件，A1、A2、A3、… 、An为Ω的一个划分，且P(B) &gt; 0，P(Ai) &gt; 0，i=1,2,3,…,n，则有：<br>P(Ai | B) = [ P(B | Ai)P(Ai) ] / [ ∑P(B | Ai)P(Ai) ]  （i=1,2,…,n）</p>
+<h3 id="独立性"><a href="#独立性" class="headerlink" title="独立性"></a>独立性</h3><p>1、事件的独立性<br>A、B相互独立（无关联），P(B | A) = P(B) ，P(AB) = P(A)P(B)<br>当P(AB) = P(A)P(B)，则称A、B是相互独立的<br>①定理1.4<br>若A、B相互独立，则 A与B’、A’与B、A’与B’ 也相互独立<br>②定理1.5<br>若事件A，B相互独立，且0 &lt; P(A) &lt; 1，则P(B | A) = P(B | A’) = P(B)<br>③若A、B既独立又互斥，那么A、B至少有一概率为0，当P(A) &gt; 0 , P(B) &gt; 0，A、B相互独立与A、B互不相容 不同时存在。<br>2、伯努利试验<br>若试验E只有两种可能结果：A与A’，则E称为伯努利试验，设P(E) = p , 0 &lt; p &lt; 1 ，此时P(A’) = 1-P ，将E独立地重复进行n次，则称这一串重复的独立试验为n重伯努利试验。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Pn (k) = Cn^k p^k (1-p)^(n-k) , k=0,1,2,...,n</span></span><br></pre></td></tr></table></figure>
+<p>意思是n重伯努利试验中A出现k次的概率计算公式。</p>
+<h2 id="二、随机变量"><a href="#二、随机变量" class="headerlink" title="二、随机变量"></a>二、随机变量</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 待补充</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="三、随机向量（二维）"><a href="#三、随机向量（二维）" class="headerlink" title="三、随机向量（二维）"></a>三、随机向量（二维）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 待补充</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="四、随机变量数字特征"><a href="#四、随机变量数字特征" class="headerlink" title="四、随机变量数字特征"></a>四、随机变量数字特征</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 待补充</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="五、大数定律与中心极限定理"><a href="#五、大数定律与中心极限定理" class="headerlink" title="五、大数定律与中心极限定理"></a>五、大数定律与中心极限定理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 待补充</span></span><br></pre></td></tr></table></figure>
+
                 <hr>
                 
 
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2021/07/03/概率论/" data-toggle="tooltip" data-placement="top"
-                           title="大学课程概率论复习">&larr; Previous Post</a>
+                        <a href="/2021/07/03/new/" data-toggle="tooltip" data-placement="top"
+                           title="Markdown语法">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2021/07/02/hello-world/" data-toggle="tooltip" data-placement="top"
-                           title="Hello World">Next Post &rarr;</a>
+                        <a href="/2021/07/02/test-my-site/" data-toggle="tooltip" data-placement="top"
+                           title="test_my_site">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -204,7 +225,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%A6%82%E7%8E%87%E8%AE%BA%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">一、概率论的基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B7%E6%9C%AC%E7%A9%BA%E9%97%B4%E3%80%81%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6"><span class="toc-text">样本空间、随机事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E7%8E%87%E3%80%81%E5%8F%A4%E5%85%B8%E6%A6%82%E5%9E%8B"><span class="toc-text">概率、古典概型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E6%A6%82%E7%8E%87%E3%80%81%E5%85%A8%E6%A6%82%E7%8E%87%E5%85%AC%E5%BC%8F"><span class="toc-text">条件概率、全概率公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%AC%E7%AB%8B%E6%80%A7"><span class="toc-text">独立性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F"><span class="toc-text">二、随机变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F%EF%BC%88%E4%BA%8C%E7%BB%B4%EF%BC%89"><span class="toc-text">三、随机向量（二维）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E6%95%B0%E5%AD%97%E7%89%B9%E5%BE%81"><span class="toc-text">四、随机变量数字特征</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B%E4%B8%8E%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86"><span class="toc-text">五、大数定律与中心极限定理</span></a></li></ol>
                 </div>
             </div>
         </div>
