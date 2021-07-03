@@ -175,14 +175,34 @@
 <h2 id="一、概率论的基本概念"><a href="#一、概率论的基本概念" class="headerlink" title="一、概率论的基本概念"></a>一、概率论的基本概念</h2><h3 id="样本空间、随机事件"><a href="#样本空间、随机事件" class="headerlink" title="样本空间、随机事件"></a>样本空间、随机事件</h3><p>一般事件运算：交换律、结合律、分配律、德摩根律</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A - B = AB<span class="string">&#x27; = A - AB </span></span><br></pre></td></tr></table></figure>
 
-<h3 id="概率、古典概型"><a href="#概率、古典概型" class="headerlink" title="概率、古典概型"></a>概率、古典概型</h3><p>1、频率<br>2、概率公理化定义<br>概率性质：<br>①P(B - A) = P(B) - p(AB)<br>②当A含于B，P(B - A) = P(B) - P(A) ; P(A) &lt;= P(B)<br>③对任意两个事件AB：P(A ∪ B) = P(A) + P(B) - P(AB)<br>3、古典概型：有限个样本点<br>4、几何概型：无数个样本点</p>
-<h3 id="条件概率、全概率公式"><a href="#条件概率、全概率公式" class="headerlink" title="条件概率、全概率公式"></a>条件概率、全概率公式</h3><p>1、条件概率<br>事件B已发生的条件下事件A发生的条件概率：p(A | B) = P(AB) / P(B)  ( P(B) &gt; 0 )</p>
-<p>性质：<br>①对于任一事件A，有P(A | B ) &gt;= 0<br>②P(Ω | B) = 1</p>
-<p>2、乘法定理<br>设P(A) &gt; 0，则有P(AB) = P(A)P(B | A)。易知，若P(B) &gt; 0 ，则有P(AB) = P(B)P(A | B).</p>
+<h3 id="概率、古典概型"><a href="#概率、古典概型" class="headerlink" title="概率、古典概型"></a>概率、古典概型</h3><p>1、频率<br>2、概率公理化定义<br>概率性质：<br>①</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P(B - A) = P(B) - p(AB)</span><br></pre></td></tr></table></figure>
+<p>②当A含于B，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P(B - A) = P(B) - P(A) ; P(A) &lt;= P(B)</span><br></pre></td></tr></table></figure>
+<p>③对任意两个事件AB：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P(A ∪ B) = P(A) + P(B) - P(AB)</span><br></pre></td></tr></table></figure>
+<p>3、古典概型：有限个样本点</p>
+<p>4、几何概型：无数个样本点</p>
+<h3 id="条件概率、全概率公式"><a href="#条件概率、全概率公式" class="headerlink" title="条件概率、全概率公式"></a>条件概率、全概率公式</h3><p>1、条件概率<br>事件B已发生的条件下事件A发生的条件概率：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p(A | B) = P(AB) / P(B)  ( P(B) &gt; 0 )</span><br></pre></td></tr></table></figure>
+<p>性质：<br>①对于任一事件A，有</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P(A | B ) &gt;= 0</span><br></pre></td></tr></table></figure>
+<p>②</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P(Ω | B) = 1</span><br></pre></td></tr></table></figure>
+<p>2、乘法定理<br>设P(A) &gt; 0，则有</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P(AB) = P(A)P(B | A)</span><br></pre></td></tr></table></figure>
+<p>易知，若P(B) &gt; 0 ，则有</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P(AB) = P(B)P(A | B).</span><br></pre></td></tr></table></figure>
 <p>3、全概率公式和贝叶斯公式</p>
-<p>全概率公式：<br>设B为样本空间Ω中任一事件，A1、A2、A3、… 、An为Ω的一个划分，且P(Ai) &gt; 0 , i=1,2,3,…,n，则有P(B) = P(A1)P(B | A1) + P(A2)P(B | A2) + P(A3)P(B | A3) + … +P(An)P(B | An) = ∑P(Ai)P(B |  Ai)   (i从1到n)；</p>
-<p>贝叶斯公式：设B为样本空间Ω中一事件，A1、A2、A3、… 、An为Ω的一个划分，且P(B) &gt; 0，P(Ai) &gt; 0，i=1,2,3,…,n，则有：<br>P(Ai | B) = [ P(B | Ai)P(Ai) ] / [ ∑P(B | Ai)P(Ai) ]  （i=1,2,…,n）</p>
-<h3 id="独立性"><a href="#独立性" class="headerlink" title="独立性"></a>独立性</h3><p>1、事件的独立性<br>A、B相互独立（无关联），P(B | A) = P(B) ，P(AB) = P(A)P(B)<br>当P(AB) = P(A)P(B)，则称A、B是相互独立的<br>①定理1.4<br>若A、B相互独立，则 A与B’、A’与B、A’与B’ 也相互独立<br>②定理1.5<br>若事件A，B相互独立，且0 &lt; P(A) &lt; 1，则P(B | A) = P(B | A’) = P(B)<br>③若A、B既独立又互斥，那么A、B至少有一概率为0，当P(A) &gt; 0 , P(B) &gt; 0，A、B相互独立与A、B互不相容 不同时存在。<br>2、伯努利试验<br>若试验E只有两种可能结果：A与A’，则E称为伯努利试验，设P(E) = p , 0 &lt; p &lt; 1 ，此时P(A’) = 1-P ，将E独立地重复进行n次，则称这一串重复的独立试验为n重伯努利试验。</p>
+<p>全概率公式：<br>设B为样本空间Ω中任一事件，A1、A2、A3、… 、An为Ω的一个划分，且P(Ai) &gt; 0 , i=1,2,3,…,n，则有</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P(B) = P(A1)P(B | A1) + P(A2)P(B | A2) + P(A3)P(B | A3) + ... +P(An)P(B | An) = ∑P(Ai)P(B |  Ai)   (i从1到n)；</span><br></pre></td></tr></table></figure>
+<p>贝叶斯公式：设B为样本空间Ω中一事件，A1、A2、A3、… 、An为Ω的一个划分，且P(B) &gt; 0，P(Ai) &gt; 0，i=1,2,3,…,n，则有：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P(Ai | B) = [ P(B | Ai)P(Ai) ] / [ ∑P(B | Ai)P(Ai) ]  （i=1,2,...,n）</span><br></pre></td></tr></table></figure>
+<h3 id="独立性"><a href="#独立性" class="headerlink" title="独立性"></a>独立性</h3><p>1、事件的独立性<br>A、B相互独立（无关联）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P(B | A) = P(B) ，P(AB) = P(A)P(B)</span><br></pre></td></tr></table></figure>
+<p>当P(AB) = P(A)P(B)，则称A、B是相互独立的<br>①定理1.4<br>若A、B相互独立，则 A与B’、A’与B、A’与B’ 也相互独立<br>②定理1.5<br>若事件A，B相互独立，且0 &lt; P(A) &lt; 1，则</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P(B | A) = P(B | A<span class="string">&#x27;) = P(B)</span></span><br></pre></td></tr></table></figure>
+<p>③若A、B既独立又互斥，那么A、B至少有一概率为0，当P(A) &gt; 0 , P(B) &gt; 0，A、B相互独立与A、B互不相容 不同时存在。<br>2、伯努利试验<br>若试验E只有两种可能结果：A与A’，则E称为伯努利试验，设P(E) = p , 0 &lt; p &lt; 1 ，此时P(A’) = 1-P ，将E独立地重复进行n次，则称这一串重复的独立试验为n重伯努利试验。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Pn (k) = Cn^k p^k (1-p)^(n-k) , k=0,1,2,...,n</span></span><br></pre></td></tr></table></figure>
 <p>意思是n重伯努利试验中A出现k次的概率计算公式。</p>
 <h2 id="二、随机变量"><a href="#二、随机变量" class="headerlink" title="二、随机变量"></a>二、随机变量</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 待补充</span></span><br></pre></td></tr></table></figure>
