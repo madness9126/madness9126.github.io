@@ -28,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/thinking\/golang%E9%93%BE%E8%A1%A8\/"
-        },"genre": "posts","keywords": "go","wordcount":  794 ,
+        },"genre": "posts","keywords": "Go","wordcount":  794 ,
         "url": "\/posts\/thinking\/golang%E9%93%BE%E8%A1%A8\/","datePublished": "2022-09-06T20:58:55+08:00","dateModified": "2022-09-06T20:58:55+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,254 +124,254 @@
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Node</span> <span class="kd">struct</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">data</span> <span class="kt">int</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">next</span> <span class="o">*</span><span class="nx">Node</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">SingleCreate</span><span class="p">(</span><span class="nx">data</span> <span class="kt">int</span><span class="p">)</span> <span class="o">*</span><span class="nx">Node</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">Node</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">data</span><span class="p">:</span> <span class="nx">data</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">next</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="c1">//创建单个节点
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">CreateList</span><span class="p">(</span><span class="nx">lenth</span> <span class="kt">int</span><span class="p">)</span> <span class="o">*</span><span class="nx">Node</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">head</span> <span class="o">*</span><span class="nx">Node</span> <span class="p">=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">Node</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">head</span><span class="p">.</span><span class="nx">data</span> <span class="p">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">temp</span> <span class="o">:=</span> <span class="nx">head</span>
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">lenth</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">node</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">Node</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">node</span><span class="p">.</span><span class="nx">data</span> <span class="p">=</span> <span class="nx">i</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">temp</span><span class="p">.</span><span class="nx">next</span> <span class="p">=</span> <span class="nx">node</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">temp</span> <span class="p">=</span> <span class="nx">node</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">head</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="c1">//创建链表
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">err</span><span class="p">(</span><span class="nx">node</span> <span class="o">*</span><span class="nx">Node</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">node</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="k">return</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">LenthList</span><span class="p">(</span><span class="nx">head</span> <span class="nx">Node</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nf">err</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">head</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">temp</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">head</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">temp</span> <span class="p">=</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">next</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">i</span><span class="o">++</span>
-</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">next</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="k">break</span>
-</span></span><span class="line"><span class="cl">		<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">i</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="c1">//计算链表长度
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">PrintList</span><span class="p">(</span><span class="nx">head</span> <span class="nx">Node</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nf">err</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">head</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">temp</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">head</span>
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%d &#34;</span><span class="p">,</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">temp</span> <span class="p">=</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">next</span>
-</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">next</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%d &#34;</span><span class="p">,</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">			<span class="k">break</span>
-</span></span><span class="line"><span class="cl">		<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;\n&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="c1">//打印链表
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">AddNode</span><span class="p">(</span><span class="nx">head</span> <span class="o">*</span><span class="nx">Node</span><span class="p">,</span> <span class="nx">data</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">location</span> <span class="kt">int</span><span class="p">)</span> <span class="o">*</span><span class="nx">Node</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">location</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">location</span> <span class="p">&gt;</span> <span class="nf">LenthList</span><span class="p">(</span><span class="o">*</span><span class="nx">head</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;out of the lenth(no change)\n&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">head</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">nnode</span> <span class="o">*</span><span class="nx">Node</span> <span class="p">=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">Node</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">nnode</span><span class="p">.</span><span class="nx">data</span> <span class="p">=</span> <span class="nx">data</span>
-</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">location</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">nnode</span><span class="p">.</span><span class="nx">next</span> <span class="p">=</span> <span class="nx">head</span>
-</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">nnode</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">temp</span> <span class="o">:=</span> <span class="nx">head</span>
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">location</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">temp</span> <span class="p">=</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">next</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">nnode</span><span class="p">.</span><span class="nx">next</span> <span class="p">=</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">next</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">temp</span><span class="p">.</span><span class="nx">next</span> <span class="p">=</span> <span class="nx">nnode</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">head</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">DeleteNodeByPosition</span><span class="p">(</span><span class="nx">head</span> <span class="o">*</span><span class="nx">Node</span><span class="p">,</span> <span class="nx">Position</span> <span class="kt">int</span><span class="p">)</span> <span class="o">*</span><span class="nx">Node</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">temp</span> <span class="o">:=</span> <span class="nx">head</span>
-</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">Position</span> <span class="p">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">Position</span> <span class="p">&gt;</span> <span class="nf">LenthList</span><span class="p">(</span><span class="o">*</span><span class="nx">head</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;out of the lenth(no change)\n&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">head</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">Position</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">head</span><span class="p">.</span><span class="nx">next</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">Position</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">temp</span> <span class="p">=</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">next</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">Position</span> <span class="o">==</span> <span class="nf">LenthList</span><span class="p">(</span><span class="o">*</span><span class="nx">head</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">temp</span><span class="p">.</span><span class="nx">next</span> <span class="p">=</span> <span class="kc">nil</span>
-</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">head</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">temp</span><span class="p">.</span><span class="nx">next</span> <span class="p">=</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nx">next</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">head</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">DeleteNodeByValue</span><span class="p">(</span><span class="nx">head</span> <span class="o">*</span><span class="nx">Node</span><span class="p">,</span> <span class="nx">Value</span> <span class="kt">int</span><span class="p">)</span> <span class="o">*</span><span class="nx">Node</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">temp</span> <span class="o">:=</span> <span class="nx">head</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">temp1</span> <span class="o">:=</span> <span class="nx">head</span>
-</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">i</span> <span class="p">=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">data</span> <span class="o">==</span> <span class="nx">Value</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="k">break</span>
-</span></span><span class="line"><span class="cl">		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="nx">temp</span> <span class="p">=</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">next</span>
-</span></span><span class="line"><span class="cl">		<span class="p">}</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">i</span><span class="o">++</span>
-</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">next</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="k">break</span>
-</span></span><span class="line"><span class="cl">		<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">data</span> <span class="o">!=</span> <span class="nx">Value</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;not found this value\n&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">head</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">i</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">head</span><span class="p">.</span><span class="nx">next</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">j</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span> <span class="p">&lt;</span> <span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">temp1</span> <span class="p">=</span> <span class="nx">temp1</span><span class="p">.</span><span class="nx">next</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">temp1</span><span class="p">.</span><span class="nx">next</span> <span class="p">=</span> <span class="nx">temp1</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nx">next</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">head</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">SearchByPosition</span><span class="p">(</span><span class="nx">head</span> <span class="o">*</span><span class="nx">Node</span><span class="p">,</span> <span class="nx">Position</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">temp</span> <span class="o">:=</span> <span class="nx">head</span>
-</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">Position</span> <span class="p">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">Position</span> <span class="p">&gt;</span> <span class="nf">LenthList</span><span class="p">(</span><span class="o">*</span><span class="nx">head</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;error,out of the lenth !\n&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">Position</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;No.%d value is %d&#34;</span><span class="p">,</span> <span class="nx">Position</span><span class="p">,</span> <span class="nx">head</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">head</span><span class="p">.</span><span class="nx">data</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">Position</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">temp</span> <span class="p">=</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">next</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;No.%d value is %d&#34;</span><span class="p">,</span> <span class="nx">Position</span><span class="p">,</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">data</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">Modify</span><span class="p">(</span><span class="nx">head</span> <span class="o">*</span><span class="nx">Node</span><span class="p">,</span> <span class="nx">Position</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">Value</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">temp</span> <span class="o">:=</span> <span class="nx">head</span>
-</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">Position</span> <span class="p">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">Position</span> <span class="p">&gt;</span> <span class="nf">LenthList</span><span class="p">(</span><span class="o">*</span><span class="nx">head</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;error,out of the lenth !\n&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="k">return</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">Position</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">temp</span> <span class="p">=</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">next</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">temp</span><span class="p">.</span><span class="nx">data</span> <span class="p">=</span> <span class="nx">Value</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">ReverseList</span><span class="p">(</span><span class="nx">head</span> <span class="o">*</span><span class="nx">Node</span><span class="p">)</span> <span class="o">*</span><span class="nx">Node</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nf">err</span><span class="p">(</span><span class="nx">head</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">newhead</span> <span class="o">:=</span> <span class="nx">head</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">node</span> <span class="o">:=</span> <span class="nx">head</span><span class="p">.</span><span class="nx">next</span>
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">node</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">newhead</span><span class="p">.</span><span class="nx">next</span> <span class="p">=</span> <span class="nx">node</span><span class="p">.</span><span class="nx">next</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">node</span><span class="p">.</span><span class="nx">next</span> <span class="p">=</span> <span class="nx">head</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">head</span> <span class="p">=</span> <span class="nx">node</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">node</span> <span class="p">=</span> <span class="nx">newhead</span><span class="p">.</span><span class="nx">next</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">head</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">CheckCircle</span><span class="p">(</span><span class="nx">head</span> <span class="nx">Node</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">slow</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">head</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fast</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">head</span>
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">fast</span><span class="p">.</span><span class="nx">next</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="o">&amp;&amp;</span> <span class="nx">fast</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">slow</span> <span class="p">=</span> <span class="nx">slow</span><span class="p">.</span><span class="nx">next</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">fast</span> <span class="p">=</span> <span class="nx">fast</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nx">next</span>
-</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">slow</span> <span class="o">==</span> <span class="nx">fast</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Has Cycle,value is %d\n&#34;</span><span class="p">,</span> <span class="nx">slow</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">			<span class="nx">slow</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">head</span>
-</span></span><span class="line"><span class="cl">			<span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">			<span class="k">for</span> <span class="nx">slow</span> <span class="o">!=</span> <span class="nx">fast</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">				<span class="nx">slow</span> <span class="p">=</span> <span class="nx">slow</span><span class="p">.</span><span class="nx">next</span>
-</span></span><span class="line"><span class="cl">				<span class="nx">i</span><span class="o">++</span>
-</span></span><span class="line"><span class="cl">			<span class="p">}</span>
-</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="nx">i</span>
-</span></span><span class="line"><span class="cl">		<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="c1">//创建链表 返回表头head
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kd">var</span> <span class="nx">head</span> <span class="p">=</span> <span class="nf">CreateList</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Head List\n&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nf">PrintList</span><span class="p">(</span><span class="o">*</span><span class="nx">head</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Lenth of List is &#34;</span><span class="p">,</span> <span class="nf">LenthList</span><span class="p">(</span><span class="o">*</span><span class="nx">head</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;-------------------&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="c1">//添加元素 返回表头head1
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Head1 List\n&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">head1</span> <span class="o">:=</span> <span class="nf">AddNode</span><span class="p">(</span><span class="nx">head</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nf">PrintList</span><span class="p">(</span><span class="o">*</span><span class="nx">head1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="c1">//删除head1元素 返回表头head2
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;-------------------&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Head2 List After Position Delete\n&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">head2</span> <span class="o">:=</span> <span class="nf">DeleteNodeByPosition</span><span class="p">(</span><span class="nx">head1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nf">PrintList</span><span class="p">(</span><span class="o">*</span><span class="nx">head2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="c1">//删除head2元素 返回表头head3
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;-------------------&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Head3 List After Value Delete\n&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">head3</span> <span class="o">:=</span> <span class="nf">DeleteNodeByValue</span><span class="p">(</span><span class="nx">head2</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nf">PrintList</span><span class="p">(</span><span class="o">*</span><span class="nx">head3</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="c1">//查询head3元素
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;-------------------&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nf">SearchByPosition</span><span class="p">(</span><span class="nx">head3</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="c1">//修改head3某个位置的值
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;\n-------------------&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nf">Modify</span><span class="p">(</span><span class="nx">head3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nf">PrintList</span><span class="p">(</span><span class="o">*</span><span class="nx">head3</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nf">SearchByPosition</span><span class="p">(</span><span class="nx">head3</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="c1">//反转链表，返回表头head4
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;\n-------------------&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">head4</span> <span class="o">:=</span> <span class="nf">ReverseList</span><span class="p">(</span><span class="nx">head3</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;After Reverse\n&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nf">PrintList</span><span class="p">(</span><span class="o">*</span><span class="nx">head4</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="c1">//检测有无环
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;-------------------&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">temp</span> <span class="o">:=</span> <span class="nx">head4</span>
-</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nf">LenthList</span><span class="p">(</span><span class="o">*</span><span class="nx">head4</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">temp</span> <span class="p">=</span> <span class="nx">temp</span><span class="p">.</span><span class="nx">next</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">temp</span><span class="p">.</span><span class="nx">next</span> <span class="p">=</span> <span class="nx">head4</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nx">next</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;The Mobius Ring&#39;s Lenth is %d\n&#34;</span><span class="p">,</span> <span class="nf">CheckCircle</span><span class="p">(</span><span class="o">*</span><span class="nx">head4</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
+            </div><div class="content" id="content"><pre tabindex="0"><code>package main
+
+import (
+	&#34;fmt&#34;
+)
+
+type Node struct {
+	data int
+	next *Node
+}
+
+func SingleCreate(data int) *Node {
+	return &amp;Node{
+		data: data,
+		next: nil,
+	}
+} //创建单个节点
+
+func CreateList(lenth int) *Node {
+	var head *Node = new(Node)
+	head.data = 0
+	temp := head
+	for i := 1; i &lt; lenth; i++ {
+		node := new(Node)
+		node.data = i
+		temp.next = node
+		temp = node
+	}
+	return head
+} //创建链表
+
+func err(node *Node) {
+	if node == nil {
+		return
+	}
+}
+
+func LenthList(head Node) int {
+	err(&amp;head)
+	temp := &amp;head
+	i := 1
+	for {
+		temp = temp.next
+		i++
+		if temp.next == nil {
+			break
+		}
+	}
+	return i
+} //计算链表长度
+
+func PrintList(head Node) {
+	err(&amp;head)
+	temp := &amp;head
+	for {
+		fmt.Printf(&#34;%d &#34;, temp.data)
+		temp = temp.next
+		if temp.next == nil {
+			fmt.Printf(&#34;%d &#34;, temp.data)
+			break
+		}
+	}
+	fmt.Printf(&#34;\n&#34;)
+} //打印链表
+
+func AddNode(head *Node, data int, location int) *Node {
+	if location &lt;= 0 || location &gt; LenthList(*head) {
+		fmt.Printf(&#34;out of the lenth(no change)\n&#34;)
+		return head
+	}
+	var nnode *Node = new(Node)
+	nnode.data = data
+	if location == 1 {
+		nnode.next = head
+		return nnode
+	}
+	temp := head
+	for i := 1; i &lt; location-1; i++ {
+		temp = temp.next
+	}
+	nnode.next = temp.next
+	temp.next = nnode
+	return head
+}
+
+func DeleteNodeByPosition(head *Node, Position int) *Node {
+	temp := head
+	if Position &lt; 0 || Position &gt; LenthList(*head) {
+		fmt.Printf(&#34;out of the lenth(no change)\n&#34;)
+		return head
+	}
+	if Position == 1 {
+		return head.next
+	}
+	for i := 1; i &lt; Position-1; i++ {
+		temp = temp.next
+	}
+	if Position == LenthList(*head) {
+		temp.next = nil
+		return head
+	}
+	temp.next = temp.next.next
+	return head
+}
+
+func DeleteNodeByValue(head *Node, Value int) *Node {
+	temp := head
+	temp1 := head
+	var i, j int
+	i = 1
+	for {
+		if temp.data == Value {
+			break
+		} else {
+			temp = temp.next
+		}
+		i++
+		if temp.next == nil {
+			break
+		}
+	}
+	if temp.data != Value {
+		fmt.Printf(&#34;not found this value\n&#34;)
+		return head
+	}
+	if i == 1 {
+		return head.next
+	}
+	for j = 1; j &lt; i-1; j++ {
+		temp1 = temp1.next
+	}
+	temp1.next = temp1.next.next
+	return head
+}
+
+func SearchByPosition(head *Node, Position int) int {
+	temp := head
+	if Position &lt; 0 || Position &gt; LenthList(*head) {
+		fmt.Printf(&#34;error,out of the lenth !\n&#34;)
+		return -1
+	}
+	if Position == 1 {
+		fmt.Printf(&#34;No.%d value is %d&#34;, Position, head.data)
+		return head.data
+	}
+	for i := 0; i &lt; Position-1; i++ {
+		temp = temp.next
+	}
+	fmt.Printf(&#34;No.%d value is %d&#34;, Position, temp.data)
+	return temp.data
+}
+
+func Modify(head *Node, Position int, Value int) {
+	temp := head
+	if Position &lt; 0 || Position &gt; LenthList(*head) {
+		fmt.Printf(&#34;error,out of the lenth !\n&#34;)
+		return
+	}
+	for i := 0; i &lt; Position-1; i++ {
+		temp = temp.next
+	}
+	temp.data = Value
+}
+
+func ReverseList(head *Node) *Node {
+	err(head)
+	newhead := head
+	node := head.next
+	for node != nil {
+		newhead.next = node.next
+		node.next = head
+		head = node
+		node = newhead.next
+	}
+	return head
+}
+
+func CheckCircle(head Node) int {
+	slow := &amp;head
+	fast := &amp;head
+	for fast.next != nil &amp;&amp; fast != nil {
+		slow = slow.next
+		fast = fast.next.next
+		if slow == fast {
+			fmt.Printf(&#34;Has Cycle,value is %d\n&#34;, slow.data)
+			slow = &amp;head
+			i := 0
+			for slow != fast {
+				slow = slow.next
+				i++
+			}
+			return i
+		}
+	}
+	return -1
+}
+
+func main() {
+	//创建链表 返回表头head
+	var head = CreateList(10)
+	fmt.Printf(&#34;Head List\n&#34;)
+	PrintList(*head)
+	fmt.Println(&#34;Lenth of List is &#34;, LenthList(*head))
+	fmt.Println(&#34;-------------------&#34;)
+
+	//添加元素 返回表头head1
+	fmt.Printf(&#34;Head1 List\n&#34;)
+	head1 := AddNode(head, 11, 7)
+	PrintList(*head1)
+
+	//删除head1元素 返回表头head2
+	fmt.Println(&#34;-------------------&#34;)
+	fmt.Printf(&#34;Head2 List After Position Delete\n&#34;)
+	head2 := DeleteNodeByPosition(head1, 11)
+	PrintList(*head2)
+
+	//删除head2元素 返回表头head3
+	fmt.Println(&#34;-------------------&#34;)
+	fmt.Printf(&#34;Head3 List After Value Delete\n&#34;)
+	head3 := DeleteNodeByValue(head2, 11)
+	PrintList(*head3)
+
+	//查询head3元素
+	fmt.Println(&#34;-------------------&#34;)
+	SearchByPosition(head3, 9)
+
+	//修改head3某个位置的值
+	fmt.Println(&#34;\n-------------------&#34;)
+	Modify(head3, 9, 10)
+	PrintList(*head3)
+	SearchByPosition(head3, 9)
+
+	//反转链表，返回表头head4
+	fmt.Println(&#34;\n-------------------&#34;)
+	head4 := ReverseList(head3)
+	fmt.Printf(&#34;After Reverse\n&#34;)
+	PrintList(*head4)
+
+	//检测有无环
+	fmt.Println(&#34;-------------------&#34;)
+	temp := head4
+	for i := 1; i &lt; LenthList(*head4); i++ {
+		temp = temp.next
+	}
+	temp.next = head4.next.next.next.next
+	fmt.Printf(&#34;The Mobius Ring&#39;s Lenth is %d\n&#34;, CheckCircle(*head4))
+}
+</code></pre></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -380,13 +380,13 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/thinking/golang%E9%93%BE%E8%A1%A8/" data-title="Golang链表" data-hashtags="go"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="/posts/thinking/golang%E9%93%BE%E8%A1%A8/" data-hashtag="go"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="/posts/thinking/golang%E9%93%BE%E8%A1%A8/" data-title="Golang链表"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="/posts/thinking/golang%E9%93%BE%E8%A1%A8/" data-title="Golang链表"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Instapaper" data-sharer="instapaper" data-url="/posts/thinking/golang%E9%93%BE%E8%A1%A8/" data-title="Golang链表" data-description=""><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/instapaper.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="/posts/thinking/golang%E9%93%BE%E8%A1%A8/" data-title="Golang链表"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/thinking/golang%E9%93%BE%E8%A1%A8/" data-title="Golang链表" data-hashtags="Go"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="/posts/thinking/golang%E9%93%BE%E8%A1%A8/" data-hashtag="Go"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="/posts/thinking/golang%E9%93%BE%E8%A1%A8/" data-title="Golang链表"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="/posts/thinking/golang%E9%93%BE%E8%A1%A8/" data-title="Golang链表"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Instapaper" data-sharer="instapaper" data-url="/posts/thinking/golang%E9%93%BE%E8%A1%A8/" data-title="Golang链表" data-description=""><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/instapaper.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="/posts/thinking/golang%E9%93%BE%E8%A1%A8/" data-title="Golang链表"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/go/">go</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/go/">Go</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>
