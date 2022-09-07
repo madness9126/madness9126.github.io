@@ -2,12 +2,13 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>/posts/thinking/</loc><lastmod>2022-08-09T01:43:34&#43;08:00</lastmod></url><url>
+            <loc>/posts/thinking/</loc><lastmod>2022-09-06T20:58:55&#43;08:00</lastmod></url><url>
+            <loc>/posts/thinking/golang%E9%93%BE%E8%A1%A8/</loc><lastmod>2022-09-06T20:58:55&#43;08:00</lastmod></url><url>
+            <loc>/posts/</loc><lastmod>2022-09-06T20:58:55&#43;08:00</lastmod></url><url>
+            <loc>/</loc><lastmod>2022-09-06T20:58:55&#43;08:00</lastmod></url><url>
             <loc>/posts/thinking/markdown%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/</loc><lastmod>2022-08-09T01:43:34&#43;08:00</lastmod></url><url>
             <loc>/tags/markdown%E8%AF%AD%E6%B3%95/</loc><lastmod>2022-08-09T01:43:34&#43;08:00</lastmod></url><url>
-            <loc>/posts/</loc><lastmod>2022-08-09T01:43:34&#43;08:00</lastmod></url><url>
             <loc>/tags/</loc><lastmod>2022-08-09T01:43:34&#43;08:00</lastmod></url><url>
-            <loc>/</loc><lastmod>2022-08-09T01:43:34&#43;08:00</lastmod></url><url>
             <loc>/tags/c/</loc><lastmod>2022-07-24T20:57:29&#43;08:00</lastmod></url><url>
             <loc>/posts/thinking/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/</loc><lastmod>2022-07-24T20:57:29&#43;08:00</lastmod></url><url>
             <loc>/posts/coding/</loc></url><url>
