@@ -4,7 +4,15 @@
         <link>/posts/thinking/</link>
         <description>All Posts | アニャ様です！</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1091451551@qq.com (アニャ様)</managingEditor>
-            <webMaster>1091451551@qq.com (アニャ様)</webMaster><lastBuildDate>Tue, 06 Sep 2022 20:58:55 &#43;0800</lastBuildDate><atom:link href="/posts/thinking/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>1091451551@qq.com (アニャ様)</webMaster><lastBuildDate>Wed, 07 Sep 2022 16:58:08 &#43;0800</lastBuildDate><atom:link href="/posts/thinking/" rel="self" type="application/rss+xml" /><item>
+    <title>每次更新hugo博客的操作</title>
+    <link>/posts/thinking/%E6%AF%8F%E6%AC%A1%E6%9B%B4%E6%96%B0hugo%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%93%8D%E4%BD%9C/</link>
+    <pubDate>Wed, 07 Sep 2022 16:58:08 &#43;0800</pubDate>
+    <author>アニャ様</author>
+    <guid>/posts/thinking/%E6%AF%8F%E6%AC%A1%E6%9B%B4%E6%96%B0hugo%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%93%8D%E4%BD%9C/</guid>
+    <description><![CDATA[每次更新hugo博客所需的操作 打开 PowerShell / cmd 终端，打开最初用 hugo 搭建的博客所在的文件夹，以我为例： cd D:\Blog 第一步： 新建一个 markdown(.md) 格式的文件： hugo new post/FileName.md 其中 FileName 为]]></description>
+</item>
+<item>
     <title>Golang链表</title>
     <link>/posts/thinking/golang%E9%93%BE%E8%A1%A8/</link>
     <pubDate>Tue, 06 Sep 2022 20:58:55 &#43;0800</pubDate>
