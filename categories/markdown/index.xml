@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>MarkDown - Category - アニャ様です！</title>
+        <link>/categories/markdown/</link>
+        <description>MarkDown - Category - アニャ様です！</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1091451551@qq.com (アニャ様)</managingEditor>
+            <webMaster>1091451551@qq.com (アニャ様)</webMaster><lastBuildDate>Tue, 09 Aug 2022 01:43:34 &#43;0800</lastBuildDate><atom:link href="/categories/markdown/" rel="self" type="application/rss+xml" /><item>
+    <title>MarkDown常用语法</title>
+    <link>/posts/thinking/markdown%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/</link>
+    <pubDate>Tue, 09 Aug 2022 01:43:34 &#43;0800</pubDate>
+    <author>アニャ様</author>
+    <guid>/posts/thinking/markdown%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/</guid>
+    <description><![CDATA[1. 分级标题 一级 用 # 二级 用 ## &hellip; &hellip;(以此类推) 2. 段落 创建段落，请使用空白行将一行或多行文本进行分隔。 不要用空格（spaces）或制]]></description>
+</item>
+</channel>
+</rss>

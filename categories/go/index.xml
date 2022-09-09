@@ -1,0 +1,24 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Go - Category - アニャ様です！</title>
+        <link>/categories/go/</link>
+        <description>Go - Category - アニャ様です！</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1091451551@qq.com (アニャ様)</managingEditor>
+            <webMaster>1091451551@qq.com (アニャ様)</webMaster><lastBuildDate>Fri, 09 Sep 2022 10:14:33 &#43;0800</lastBuildDate><atom:link href="/categories/go/" rel="self" type="application/rss+xml" /><item>
+    <title>Golang队列</title>
+    <link>/posts/thinking/golang%E9%98%9F%E5%88%97/</link>
+    <pubDate>Fri, 09 Sep 2022 10:14:33 &#43;0800</pubDate>
+    <author>アニャ様</author>
+    <guid>/posts/thinking/golang%E9%98%9F%E5%88%97/</guid>
+    <description><![CDATA[package main import ( &#34;errors&#34; &#34;fmt&#34; &#34;os&#34; ) // 使用结构体管理队列 type Queue struct { Maxsize int array [5]int //数组 模拟队列 front int // 指向队列首部 rear int // 指向队列 尾部 } // 入队 func (q *Queue) Push(value int) (err error) { // 判断队列是]]></description>
+</item>
+<item>
+    <title>Golang链表</title>
+    <link>/posts/thinking/golang%E9%93%BE%E8%A1%A8/</link>
+    <pubDate>Tue, 06 Sep 2022 20:58:55 &#43;0800</pubDate>
+    <author>アニャ様</author>
+    <guid>/posts/thinking/golang%E9%93%BE%E8%A1%A8/</guid>
+    <description><![CDATA[package main import ( &#34;fmt&#34; ) type Node struct { data int next *Node } func SingleCreate(data int) *Node { return &amp;Node{ data: data, next: nil, } } //创建单个节点 func CreateList(lenth int) *Node { var head *Node = new(Node) head.data = 0 temp := head for i := 1; i &lt; lenth; i++ { node := new(Node) node.data = i temp.next = node]]></description>
+</item>
+</channel>
+</rss>

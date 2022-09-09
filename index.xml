@@ -20,7 +20,7 @@
     <pubDate>Wed, 07 Sep 2022 16:58:08 &#43;0800</pubDate>
     <author>アニャ様</author>
     <guid>/posts/thinking/%E6%AF%8F%E6%AC%A1%E6%9B%B4%E6%96%B0hugo%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%93%8D%E4%BD%9C/</guid>
-    <description><![CDATA[每次更新hugo博客所需的操作 打开 PowerShell / cmd 终端，打开最初用 hugo 搭建的博客所在的文件夹，以我为例： cd D:\Blog 第一步： 新建一个 markdown(.md) 格式的文件： hugo new post/FileName.md 其中 FileName 为]]></description>
+    <description><![CDATA[每次更新hugo博客所需的操作 打开 Powercmd / cmd 终端，打开最初用 hugo 搭建的博客所在的文件夹，以我为例： cd D:\Blog 第一步： 新建一个 markdown(.md) 格式的文件： hugo new post/FileName.md 其中 FileName 为]]></description>
 </item>
 <item>
     <title>Golang链表</title>

@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>C - Category - アニャ様です！</title>
+        <link>/categories/c/</link>
+        <description>C - Category - アニャ様です！</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1091451551@qq.com (アニャ様)</managingEditor>
+            <webMaster>1091451551@qq.com (アニャ様)</webMaster><lastBuildDate>Sun, 24 Jul 2022 20:57:29 &#43;0800</lastBuildDate><atom:link href="/categories/c/" rel="self" type="application/rss+xml" /><item>
+    <title>文件管理</title>
+    <link>/posts/thinking/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/</link>
+    <pubDate>Sun, 24 Jul 2022 20:57:29 &#43;0800</pubDate>
+    <author>アニャ様</author>
+    <guid>/posts/thinking/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/</guid>
+    <description><![CDATA[C语言的文件管理部分内容 1. 从文件中逐个输入字符及向文件中逐个输出字符的顺序读写函数 fgetc 和 fputc 调整文件读写位置到文件开始处的函数 rewind 头文件：#inc]]></description>
+</item>
+</channel>
+</rss>
