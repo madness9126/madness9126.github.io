@@ -4,87 +4,87 @@
         <link>/</link>
         <description>アニャの記録</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1091451551@qq.com (アニャ様)</managingEditor>
-            <webMaster>1091451551@qq.com (アニャ様)</webMaster><lastBuildDate>Wed, 21 Sep 2022 20:44:20 &#43;0800</lastBuildDate>
+            <webMaster>1091451551@qq.com (アニャ様)</webMaster><lastBuildDate>Fri, 09 Sep 2022 10:14:33 &#43;0800</lastBuildDate>
             <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>无递归中序树栈遍历</title>
-    <link>/posts/coding/%E6%97%A0%E9%80%92%E5%BD%92%E4%B8%AD%E5%BA%8F%E6%A0%91%E6%A0%88%E9%81%8D%E5%8E%86/</link>
-    <pubDate>Wed, 21 Sep 2022 20:44:20 &#43;0800</pubDate>
-    <author>Author</author>
-    <guid>/posts/coding/%E6%97%A0%E9%80%92%E5%BD%92%E4%B8%AD%E5%BA%8F%E6%A0%91%E6%A0%88%E9%81%8D%E5%8E%86/</guid>
-    <description><![CDATA[#include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; #define bool int //树节点 struct tNode { int data; struct tNode *left; struct tNode *right; }; //堆栈 struct sNode { struct tNode *t; struct sNode *next; }; //堆栈相关函数 void push(struct sNode **top_ref , struct tNode *t); struct tNode *pop(struct sNode **top_ref); bool isEmpty(struct sNode *top); //迭代遍历顺]]></description>
+    <title>Golang队列</title>
+    <link>/posts/thinking/golang%E9%98%9F%E5%88%97/</link>
+    <pubDate>Fri, 09 Sep 2022 10:14:33 &#43;0800</pubDate>
+    <author>アニャ様</author>
+    <guid>/posts/thinking/golang%E9%98%9F%E5%88%97/</guid>
+    <description><![CDATA[package main import ( &#34;errors&#34; &#34;fmt&#34; &#34;os&#34; ) // 使用结构体管理队列 type Queue struct { Maxsize int array [5]int //数组 模拟队列 front int // 指向队列首部 rear int // 指向队列 尾部 } // 入队 func (q *Queue) Push(value int) (err error) { // 判断队列是]]></description>
 </item>
 <item>
-    <title>二叉树</title>
-    <link>/posts/coding/%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
-    <pubDate>Wed, 21 Sep 2022 20:42:40 &#43;0800</pubDate>
-    <author>Author</author>
-    <guid>/posts/coding/%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
-    <description><![CDATA[binary tree 二叉树 #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; //树节点 struct node { int data; struct node *left; struct node *right; }; struct node *newnode(int data) { struct node *node = (struct node *)malloc(sizeof(struct node)); node-&gt;data = data; node-&gt;left = NULL; node-&gt;right = NULL; return (node); } //树的遍历 //前序、中序、后序 void printPostorder(struct node]]></description>
+    <title>每次更新hugo博客的操作</title>
+    <link>/posts/thinking/%E6%AF%8F%E6%AC%A1%E6%9B%B4%E6%96%B0hugo%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%93%8D%E4%BD%9C/</link>
+    <pubDate>Wed, 07 Sep 2022 16:58:08 &#43;0800</pubDate>
+    <author>アニャ様</author>
+    <guid>/posts/thinking/%E6%AF%8F%E6%AC%A1%E6%9B%B4%E6%96%B0hugo%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%93%8D%E4%BD%9C/</guid>
+    <description><![CDATA[每次更新hugo博客所需的操作 打开 Powercmd / cmd 终端，打开最初用 hugo 搭建的博客所在的文件夹，以我为例： cd D:\Blog 第一步： 新建一个 markdown(.md) 格式的文件： hugo new post/FileName.md 其中 FileName 为]]></description>
 </item>
 <item>
-    <title>链表实现队列</title>
-    <link>/posts/coding/%E9%93%BE%E8%A1%A8%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</link>
-    <pubDate>Wed, 21 Sep 2022 20:41:40 &#43;0800</pubDate>
-    <author>Author</author>
-    <guid>/posts/coding/%E9%93%BE%E8%A1%A8%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</guid>
-    <description><![CDATA[#include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; //队列节点 struct Qnode { int key; struct Qnode *next; }; struct Queue{ struct Qnode *rear , *front; }; //创建新队列节点 struct Qnode *newnode(int k) { struct Qnode *temp = (struct Qnode *)malloc(sizeof(struct Qnode)); temp-&gt;key = k; temp-&gt;next = NULL; return temp; } //利用链表创建新队列 struct]]></description>
+    <title>Golang链表</title>
+    <link>/posts/thinking/golang%E9%93%BE%E8%A1%A8/</link>
+    <pubDate>Tue, 06 Sep 2022 20:58:55 &#43;0800</pubDate>
+    <author>アニャ様</author>
+    <guid>/posts/thinking/golang%E9%93%BE%E8%A1%A8/</guid>
+    <description><![CDATA[package main import ( &#34;fmt&#34; ) type Node struct { data int next *Node } func SingleCreate(data int) *Node { return &amp;Node{ data: data, next: nil, } } //创建单个节点 func CreateList(lenth int) *Node { var head *Node = new(Node) head.data = 0 temp := head for i := 1; i &lt; lenth; i++ { node := new(Node) node.data = i temp.next = node]]></description>
 </item>
 <item>
-    <title>数组实现队列</title>
-    <link>/posts/coding/%E6%95%B0%E7%BB%84%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</link>
-    <pubDate>Wed, 21 Sep 2022 20:40:48 &#43;0800</pubDate>
-    <author>Author</author>
-    <guid>/posts/coding/%E6%95%B0%E7%BB%84%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</guid>
-    <description><![CDATA[#include &lt;limits.h&gt; #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; // 表示队列 struct Queue{ int front,rear,size; unsigned capacity; int *array; }; //创建一个队列 struct Queue *CreateQueue(unsigned capacity) { struct Queue *queue = (struct Queue *)malloc(sizeof(struct Queue)); queue-&gt;capacity = capacity; queue-&gt;front = queue-&gt;size = 0; //初始化一个队列节点 queue-&gt;rear = capacity - 1; queue-&gt;array = (int *)malloc(queue-&gt;capacity *sizeof(int));]]></description>
+    <title>MarkDown常用语法</title>
+    <link>/posts/thinking/markdown%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/</link>
+    <pubDate>Tue, 09 Aug 2022 01:43:34 &#43;0800</pubDate>
+    <author>アニャ様</author>
+    <guid>/posts/thinking/markdown%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/</guid>
+    <description><![CDATA[1. 分级标题 一级 用 # 二级 用 ## &hellip; &hellip;(以此类推) 2. 段落 创建段落，请使用空白行将一行或多行文本进行分隔。 不要用空格（spaces）或制]]></description>
 </item>
 <item>
-    <title>数组实现栈</title>
-    <link>/posts/coding/%E6%95%B0%E7%BB%84%E5%AE%9E%E7%8E%B0%E6%A0%88/</link>
-    <pubDate>Wed, 21 Sep 2022 20:40:03 &#43;0800</pubDate>
-    <author>Author</author>
-    <guid>/posts/coding/%E6%95%B0%E7%BB%84%E5%AE%9E%E7%8E%B0%E6%A0%88/</guid>
-    <description><![CDATA[#include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; #include &lt;limits.h&gt; //创建一个栈 struct Stack{ int top; unsigned capacity; int *array; }; //创建一个栈 struct Stack *CreateStack(unsigned capacity) { struct Stack* stack = (struct Stack *)malloc(sizeof(struct Stack)); stack-&gt;capacity = capacity; stack-&gt;top = -1; stack-&gt;array = (int *)malloc(stack-&gt;capacity * sizeof(int)); return stack; } int isFull(struct Stack *stack) { return stack-&gt;capacity - 1 == stack-&gt;top; } int]]></description>
-</item>
-<item>
-    <title>字符串匹配算法</title>
-    <link>/posts/coding/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/</link>
-    <pubDate>Wed, 21 Sep 2022 20:35:40 &#43;0800</pubDate>
-    <author>Author</author>
-    <guid>/posts/coding/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/</guid>
-    <description><![CDATA[#include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; //字符串匹配搜索算法BF、RK、BM、KMP /* * BF算法，暴力匹配算法（） * Rk算法，利用哈希函数将字符串转换成数字，比较哈希值，]]></description>
-</item>
-<item>
-    <title>双链表</title>
-    <link>/posts/coding/%E5%8F%8C%E9%93%BE%E8%A1%A8/</link>
-    <pubDate>Wed, 21 Sep 2022 20:33:33 &#43;0800</pubDate>
-    <author>Author</author>
-    <guid>/posts/coding/%E5%8F%8C%E9%93%BE%E8%A1%A8/</guid>
-    <description><![CDATA[双链表 #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; //双链表 typedef struct List { struct List *pnext; struct List *ptail; int date; }List; List *CreateList(int n) { List *head = (List *)malloc(sizeof(List)); //链表头节点 head-&gt;date = 0; head-&gt;pnext = NULL; head-&gt;ptail = NULL; List *temp = head; for(int i = 1; i &lt; n ; i++) { List *node = (List *)malloc(sizeof(List)); node-&gt;date]]></description>
+    <title>文件管理</title>
+    <link>/posts/thinking/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/</link>
+    <pubDate>Sun, 24 Jul 2022 20:57:29 &#43;0800</pubDate>
+    <author>アニャ様</author>
+    <guid>/posts/thinking/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/</guid>
+    <description><![CDATA[C语言的文件管理部分内容 1. 从文件中逐个输入字符及向文件中逐个输出字符的顺序读写函数 fgetc 和 fputc 调整文件读写位置到文件开始处的函数 rewind 头文件：#inc]]></description>
 </item>
 <item>
     <title>Avl树</title>
     <link>/posts/coding/avl%E6%A0%91/</link>
-    <pubDate>Wed, 21 Sep 2022 19:51:35 &#43;0800</pubDate>
+    <pubDate>Mon, 21 Mar 2022 19:51:35 &#43;0800</pubDate>
     <author>Author</author>
     <guid>/posts/coding/avl%E6%A0%91/</guid>
     <description><![CDATA[Avl树 AVL树本质上还是一棵二叉搜索树，它的特点是： 本身首先是一棵二叉搜索树。 带有平衡条件：每个结点的左右子树的高度之差的绝对值（平衡因子]]></description>
 </item>
 <item>
-    <title>二分查找</title>
-    <link>/posts/coding/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</link>
-    <pubDate>Wed, 21 Sep 2022 12:13:26 &#43;0800</pubDate>
+    <title>字符串匹配算法</title>
+    <link>/posts/coding/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/</link>
+    <pubDate>Thu, 17 Mar 2022 20:35:40 &#43;0800</pubDate>
     <author>Author</author>
-    <guid>/posts/coding/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</guid>
-    <description><![CDATA[二分查找 二分查找的基本思想是将n个元素分成大致相等的两部分，取a[n/2]与x做比较，如果x=a[n/2],则找到x,算法中止；如果x&lt]]></description>
+    <guid>/posts/coding/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/</guid>
+    <description><![CDATA[#include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; //字符串匹配搜索算法BF、RK、BM、KMP /* * BF算法，暴力匹配算法（） * Rk算法，利用哈希函数将字符串转换成数字，比较哈希值，]]></description>
 </item>
 <item>
-    <title>C_List</title>
-    <link>/posts/thinking/c_list/</link>
-    <pubDate>Wed, 21 Sep 2022 00:09:12 &#43;0800</pubDate>
+    <title>二叉树</title>
+    <link>/posts/coding/%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+    <pubDate>Tue, 15 Mar 2022 10:42:40 &#43;0800</pubDate>
     <author>Author</author>
-    <guid>/posts/thinking/c_list/</guid>
-    <description><![CDATA[#include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; #include &lt;math.h&gt; #include &lt;unistd.h&gt; typedef struct Date { int numb; char *name; }Date; typedef struct Node { int date; struct Node *point; }Node; int LenthList(Node *head) { int i; Node *temp = head; while(temp) { temp = temp-&gt;point; i++; } return i; } void PrintList(Node *head) { Node *temp = head; while(temp) { printf(&#34;%d &#34;,temp-&gt;date); temp = temp-&gt;point; } printf(&#34;\n&#34;); } Node *CraeteList(int n) { Node *head = (Node *)malloc(sizeof(Node)); head-&gt;point = NULL; head-&gt;date = 0; Node *temp = head; for(int i = 1;i &lt; n;i++) { Node *node = (Node *)malloc(sizeof(Node)); node-&gt;point = NULL; node-&gt;date = i; temp-&gt;point = node; temp = node; } return head; } Node *InsertList(Node *head , int n ,int numb) { if(n &gt; LenthList(head)+1 || n &lt; 1) { return head; } Node *temp = (Node *)malloc(sizeof(Node)); temp-&gt;point = NULL; temp-&gt;date = numb; if(n == 1) { Node *nhead = (Node *)malloc(sizeof(Node)); nhead-&gt;point = head; temp-&gt;point = head; nhead-&gt;point = temp; head = nhead; free(nhead); return head; } if(n &gt; 1 &amp;&amp; n &lt;= LenthList(head)) { Node *temp1 = head; while (temp1-&gt;point !]]></description>
+    <guid>/posts/coding/%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+    <description><![CDATA[binary tree 二叉树 #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; //树节点 struct node { int data; struct node *left; struct node *right; }; struct node *newnode(int data) { struct node *node = (struct node *)malloc(sizeof(struct node)); node-&gt;data = data; node-&gt;left = NULL; node-&gt;right = NULL; return (node); } //树的遍历 //前序、中序、后序 void printPostorder(struct node]]></description>
+</item>
+<item>
+    <title>无递归中序树栈遍历</title>
+    <link>/posts/coding/%E6%97%A0%E9%80%92%E5%BD%92%E4%B8%AD%E5%BA%8F%E6%A0%91%E6%A0%88%E9%81%8D%E5%8E%86/</link>
+    <pubDate>Tue, 21 Dec 2021 20:15:20 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>/posts/coding/%E6%97%A0%E9%80%92%E5%BD%92%E4%B8%AD%E5%BA%8F%E6%A0%91%E6%A0%88%E9%81%8D%E5%8E%86/</guid>
+    <description><![CDATA[#include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; #define bool int //树节点 struct tNode { int data; struct tNode *left; struct tNode *right; }; //堆栈 struct sNode { struct tNode *t; struct sNode *next; }; //堆栈相关函数 void push(struct sNode **top_ref , struct tNode *t); struct tNode *pop(struct sNode **top_ref); bool isEmpty(struct sNode *top); //迭代遍历顺]]></description>
+</item>
+<item>
+    <title>双链表</title>
+    <link>/posts/coding/%E5%8F%8C%E9%93%BE%E8%A1%A8/</link>
+    <pubDate>Mon, 25 Oct 2021 20:33:33 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>/posts/coding/%E5%8F%8C%E9%93%BE%E8%A1%A8/</guid>
+    <description><![CDATA[双链表 #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; //双链表 typedef struct List { struct List *pnext; struct List *ptail; int date; }List; List *CreateList(int n) { List *head = (List *)malloc(sizeof(List)); //链表头节点 head-&gt;date = 0; head-&gt;pnext = NULL; head-&gt;ptail = NULL; List *temp = head; for(int i = 1; i &lt; n ; i++) { List *node = (List *)malloc(sizeof(List)); node-&gt;date]]></description>
 </item>
 </channel>
 </rss>

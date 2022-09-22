@@ -4,20 +4,20 @@
         <link>/posts/</link>
         <description>All Posts | アニャ様です！</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1091451551@qq.com (アニャ様)</managingEditor>
-            <webMaster>1091451551@qq.com (アニャ様)</webMaster><lastBuildDate>Wed, 21 Sep 2022 20:44:20 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>1091451551@qq.com (アニャ様)</webMaster><lastBuildDate>Fri, 09 Sep 2022 10:14:33 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
     <title></title>
-    <link>/posts/coding/</link>
-    <pubDate>Wed, 21 Sep 2022 20:44:20 &#43;0800</pubDate>
+    <link>/posts/thinking/</link>
+    <pubDate>Fri, 09 Sep 2022 10:14:33 &#43;0800</pubDate>
     <author>アニャ様</author>
-    <guid>/posts/coding/</guid>
+    <guid>/posts/thinking/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title></title>
-    <link>/posts/thinking/</link>
-    <pubDate>Wed, 21 Sep 2022 00:09:12 &#43;0800</pubDate>
+    <link>/posts/coding/</link>
+    <pubDate>Mon, 21 Mar 2022 19:51:35 &#43;0800</pubDate>
     <author>アニャ様</author>
-    <guid>/posts/thinking/</guid>
+    <guid>/posts/coding/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>
