@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Socket网络编程之TCP - アニャ様です！</title><meta name="Description" content="アニャの記録"><meta property="og:title" content="Socket网络编程之TCP" />
+<meta property="og:description" content="Socket网络编程详解(TCP) 一、Socket的定义 套接字(Socket)，就是对网络中不同主机上的应用进程之间进行双向通信的端点的抽象" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/thinking/socket%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%B9%8Btcp/" /><meta property="og:image" content="/mstile-150x150.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-10-05T15:55:13+08:00" />
+<meta property="article:modified_time" content="2022-10-05T15:55:13+08:00" /><meta property="og:site_name" content="アニャ様" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="/mstile-150x150.png"/>
+
+<meta name="twitter:title" content="Socket网络编程之TCP"/>
+<meta name="twitter:description" content="Socket网络编程详解(TCP) 一、Socket的定义 套接字(Socket)，就是对网络中不同主机上的应用进程之间进行双向通信的端点的抽象"/>
+<meta name="application-name" content="アニャ様">
+<meta name="apple-mobile-web-app-title" content="アニャ様"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="canonical" href="/posts/thinking/socket%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%B9%8Btcp/" /><link rel="prev" href="/posts/thinking/golang%E9%98%9F%E5%88%97/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Socket网络编程之TCP",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/posts\/thinking\/socket%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%B9%8Btcp\/"
+        },"genre": "posts","keywords": "C","wordcount":  3287 ,
+        "url": "\/posts\/thinking\/socket%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%B9%8Btcp\/","datePublished": "2022-10-05T15:55:13+08:00","dateModified": "2022-10-05T15:55:13+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "アニャ様"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="アニャ様です！"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/android-chrome-192x192.png"
+        data-srcset="/android-chrome-192x192.png, /android-chrome-192x192.png 1.5x, /android-chrome-192x192.png 2x"
+        data-sizes="auto"
+        alt="/android-chrome-192x192.png"
+        title="/android-chrome-192x192.png" /><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/" title="主页"> Me </a><a class="menu-item" href="/posts/coding/" title="算法"> Coding </a><a class="menu-item" href="/posts/thinking/" title="思考"> Thinking </a><a class="menu-item" href="/tags/" title="标签"> Label </a><a class="menu-item" href="/categories/" title="分类"> Category </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="アニャ......わぐわぐ！" id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="アニャ様です！"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/android-chrome-192x192.png"
+        data-srcset="/android-chrome-192x192.png, /android-chrome-192x192.png 1.5x, /android-chrome-192x192.png 2x"
+        data-sizes="auto"
+        alt="/android-chrome-192x192.png"
+        title="/android-chrome-192x192.png" /><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="アニャ......わぐわぐ！" id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/" title="主页">Me</a><a class="menu-item" href="/posts/coding/" title="算法">Coding</a><a class="menu-item" href="/posts/thinking/" title="思考">Thinking</a><a class="menu-item" href="/tags/" title="标签">Label</a><a class="menu-item" href="/categories/" title="分类">Category</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Socket网络编程之TCP</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="15603067616" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>アニャ様</a></span>&nbsp;<span class="post-category">included in <a href="/categories/c/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>C</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-10-05">2022-10-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3287 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;7 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="true">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#socket网络编程详解tcp">Socket网络编程详解(TCP)</a>
+      <ul>
+        <li><a href="#一socket的定义">一、Socket的定义</a></li>
+        <li><a href="#二socket的8个常用函数">二、Socket的8个常用函数</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="socket网络编程详解tcp">Socket网络编程详解(TCP)</h2>
+<h3 id="一socket的定义">一、Socket的定义</h3>
+<p>套接字(Socket)，就是对网络中不同主机上的应用进程之间进行双向通信的端点的抽象。一个套接字就是网络上进程通信的一端，提供了应用层进程利用网络协议交换数据的机制。从所处的地位来讲，套接字上联应用进程，下联网络协议栈，是应用程序通过网络协议进行通信的接口，是应用程序与网络协议栈进行交互的接口<!-- raw HTML omitted --></p>
+<p>个人理解：socket其实就是一根通信电缆两端的电话终端，电话接通后就相当两个socket建立了连接，两个电话之间可以相互通话，两个socket之间就可以实时收发数据，socket仅仅是一个通信工具，通信工具，通信工具重要的事说三遍（OSI模型中的第四层传输层的API接口，这一层通常使用两种协议TCP或UDP来传输）并不是一种协议。TCP、UDP、HTTP才是我们通常理解的协议。<!-- raw HTML omitted --></p>
+<p>也就是说，Socket这个工具一般使用TCP和UDP两种协议来通信，否则光杆socket并没有毛用。其实我们所认识到的互联网中的各种通信：web请求、即时通讯、文件传输和共享等等底层都是通过Socket工具来实现的，所以说互联网一切皆socket。搞懂了socket你就相当于打通了任督二脉。<!-- raw HTML omitted --></p>
+<h3 id="二socket的8个常用函数">二、Socket的8个常用函数</h3>
+<p><em><strong>Socket网络编程掌握下面几个C语言socket函数</strong></em></p>
+<h4 id="1----int-socketint-domain-int-type-int-protocol">1.    int socket(int domain, int type, int protocol);</h4>
+<p>socket函数对应于普通文件的打开操作。普通文件的打开操作返回一个文件描述字，而socket()用于创建一个socket描述符（socket descriptor），它唯一标识一个socket。这个socket描述字跟文件描述字一样，后续的操作都有用到它，把它作为参数，通过它来进行一些读写操作。</p>
+<p>正如可以给fopen的传入不同参数值，以打开不同的文件。创建socket的时候，也可以指定不同的参数创建不同的socket描述符。</p>
+<h4 id="socket函数的三个参数和return分别为">socket函数的三个参数和return分别为：</h4>
+<p>domain：即协议域，又称为协议族（family）。通常我们只需关心这两个协议族就够了AF_INET、AF_INET6。<strong>AF_INET表示创建IPv4的socket，那么AF_INET6就表示创建IPv6的socket。</strong></p>
+<p>type：指定socket类型。常用的socket类型有，通常我们只需关心SOCK_STREAM、SOCK_DGRAM这两个类型也就够了，<strong>SOCK_STREAM表示TCP类型的socket，SOCK_DGRAM表示UDP类型的socket。</strong></p>
+<p>protocol：故名思意，就是指定协议。常用的协议有，IPPROTO_TCP、IPPTOTO_UDP、IPPROTO_SCTP、IPPROTO_TIPC等，它们分别对应TCP传输协议、UDP传输协议、STCP传输协议、TIPC传输协议。<strong>通常使用中只需记住这个参数设为0就够了。当protocol为0时，会自动选择type类型对应的默认协议。</strong></p>
+<p>return：套接口描述字。如果出现错误，它返回-1，并设置errno为相应的值</p>
+<p>当我们调用socket创建一个socket时，返回的socket描述字它存在于协议族（address family，AF_XXX）空间中，但没有一个具体的地址。<strong>如果想要给它赋值一个地址，就必须调用bind()函数，否则就当调用connect()、listen()时系统会自动随机分配一个端口。具体下文详细说明。</strong></p>
+<h4 id="2--int-bindint-sockfd-const-struct-sockaddr-addr-socklen_t-addrlen">2.   int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen);</h4>
+<p>正如上面所说bind()函数把一个地址族中的特定地址（IP+Port）赋给socket。例如对应AF_INET、AF_INET6就是把一个ipv4或ipv6地址和端口号组合赋给socket。作为服务端我们必须给它指定一个端口号，要不然客户端就不知道该连哪个端口了。**所以服务器一般初始化问socket必须调用bind()函数绑定地址然后才能listen()。而客户端一般初始化完socket并且知道服务器IP地址和端口号就直接可以调用connect()函数进行连接了，**不需要绑定自己的地址，因为系统随机给客户端分配的地址（IP+Port）已经默默发送到服务器了。</p>
+<h4 id="三个参数及return的含义">三个参数及return的含义：</h4>
+<p>sockfd：即socket描述字，它是通过socket()函数创建了，唯一标识一个socket。bind()函数就是将给这个描述字绑定一个名字。</p>
+<p>addr：一个const struct sockaddr *指针，指向要绑定给sockfd的协议地址。这个地址结构根据地址创建socket时的地址协议族的不同而不同，如ipv4对应的是：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">sockaddr_in</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">              <span class="n">sa_family_t</span>    <span class="n">sin_family</span><span class="p">;</span> <span class="cm">/* address family: AF_INET */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">              <span class="n">in_port_t</span>      <span class="n">sin_port</span><span class="p">;</span>  <span class="cm">/* port in network byte order */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">              <span class="k">struct</span> <span class="n">in_addr</span> <span class="n">sin_addr</span><span class="p">;</span>  <span class="cm">/* internet address */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>addrlen：对应的是地址的长度。</p>
+<p>return：成功返回0，失败返回-1</p>
+<h4 id="3--int-listenint-sockfd-int-backlog">3.   int listen(int sockfd, int backlog);</h4>
+<p>作为一个服务器，在调用socket()、bind()之后就会调用listen()来监听这个socket，如果客户端这时调用connect()发出连接请求，服务器端就会接收到这个请求。socket()函数创建的socket默认是一个主动类型的，listen函数将socket变为被动类型的，等待客户的连接请求。</p>
+<p>sockfd：<strong>即为要监听的socket描述字</strong></p>
+<p>backlog：相应socket可以排队的最大连接个数。</p>
+<p>return：成功返回0，失败返回-1</p>
+<h4 id="4--int-connectint-sockfd-const-struct-sockaddr-addr-socklen_t-addrlen">4.   int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen);</h4>
+<p>作为客户端初始化完socket，不需要bind()就直接可以connect()与服务端建立连接了。因为系统会自动生成一个随机的地址（具体应该为本机IP+随机端口号）。</p>
+<p>sockfd：还没绑定客户端具体地址的socket描述字</p>
+<p>addr：即将要连接到服务端的地址（IP+port）</p>
+<p>addrlen：地址长度</p>
+<p>return：如果是阻塞连接，成功立即返回0，如果失败，在iOS系统上超时大约一分钟后返回-1</p>
+<h4 id="5-int-acceptint-sockfd-struct-sockaddr-addr-socklen_t-addrlen">5.  int accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen);</h4>
+<p>TCP服务器端依次调用socket()、bind()、listen()之后，就会监听指定的socket地址了。TCP客户端依次调用socket()、connect()之后就向TCP服务器发送了一个连接请求。TCP服务器监听到这个请求之后，就会调用accept()函数取接收请求，并把会这样连接就建立好了。之后就可以开始网络I/O操作了，即类同于普通文件的读写I/O操作。</p>
+<p>sockfd：已经绑定具体服务端地址的socket描述字。</p>
+<p>sockaddr：一般为NULL,这个参数可以理解为interface指定连接必须从哪里来的，比如是localhost、wifi还是以太网卡。NULL为任意方式。</p>
+<p>addrlen：sockaddr地址长度</p>
+<p>return：成功返回服务器端socket描述字否则错误。</p>
+<h4 id="6-ssize_t-writeint-fd-const-void-buf-size_t-count">6.  ssize_t write(int fd, const void *buf, size_t count);</h4>
+<p>服务端与客户端建立了通信接下来就可以实现网络通信了，可以调用网络I/O进行读写操作了，即实现了网络中不同进程之间的通信！</p>
+<p>fd:要写入的的socket文件描述符</p>
+<p>buf：将要被写入的缓冲区数据</p>
+<p>count：被写入的数据长度</p>
+<p>return：<strong>返回值大于0，表示写了部分数据或者是全部的数据，这样用一个while循环不断的写入数据，但是循环过程中的buf参数和count参数是我们自己来更新的，也就是说，网络编程中写函数是不负责将全部数据写完之后再返回的，说不定中途就返回了！返回值小于0表示出错。</strong></p>
+<h4 id="7-ssize_t-readint-fd-void-buf-size_t-count">7. ssize_t read(int fd, void *buf, size_t count);</h4>
+<p>如果系统事件源有了一个读取信号事件发生，那么我们可以调用read方法读取网络I/O中的数据。</p>
+<p>fd：建立连接的socket文件描述符</p>
+<p>buf：读取数据后放入的缓冲区</p>
+<p>count：缓冲区大小</p>
+<p>return：<strong>当读取成功时，read返回实际读取到的字节数，这样我们可以用一个while循环不断的读取数据，但是循环过程中的buf参数和count参数是我们自己来更新的，也就是说，网络编程中写函数是不负责将全部数据读取完之后再返回的。如果返回值是0，表示已经读取到文件的结束了，小于0表示是读取错误。</strong></p>
+<h4 id="8-int-closeint-fd">8.  int close(int fd);</h4>
+<p>在服务器与客户端建立连接之后，会进行一些读写操作，完成了读写操作就要关闭相应的socket描述字，好比操作完打开的文件要调用fclose关闭打开的文件。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-10-05</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/c/">C</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/thinking/golang%E9%98%9F%E5%88%97/" class="prev" rel="prev" title="Golang队列"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Golang队列</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">わぐわぐ - coding....</div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="15603067616" target="_blank">アニャ様</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"data":{"id-1":"アニャさん - coding","id-2":"アニャさん - coding"},"lightgallery":true,"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
